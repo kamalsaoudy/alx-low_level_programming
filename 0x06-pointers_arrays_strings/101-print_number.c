@@ -1,34 +1,22 @@
-#include "main.h"
-#include <stdio.h>
+#include "holberton.h"
+
 /**
- * print_number - fonction
- * @n: param
- * Return: rien
+ * print_number - Prints an integer.
+ * @n: The integer to be printed.
  */
+
 void print_number(int n)
 {
-        unsigned int div = 1;
-	unsigned int m;
+	unsigned int num = n;
 
 	if (n < 0)
 	{
-		_putchar(45);
-		m = n * -1;
-	}
-	else
-		m = n;
-
-	printf("m = %d\n", m);
-	while (m / (div * 10) != 0)
-	{
-		div = div * 10;
+		_putchar('-');
+		num = -num;
 	}
 
-	printf("div = %d\n", div);
-	while (div > 0)
-	{
-		_putchar((m / div) + 48);
-		m = m % div;
-		div = div / 10;
-	}
+	if ((num / 10) > 0)
+		print_number(num / 10);
+
+	_putchar((num % 10) + '0');
 }
